@@ -1,34 +1,54 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import About from './components/About'
+import Contact from './components/Contact'
+import FloatingWhatsApp from './components/FloatingWhatsApp'
+import Footer from './components/Footer'
+import Header from './components/Header'
+import Hero from './components/Hero'
+import Services from './components/Services'
+import Testimonials from './components/Testimonials'
+import {
+  aboutCards,
+  aboutHighlights,
+  aboutIntro,
+  contactInfo,
+  heroContent,
+  heroImage,
+  navItems,
+  profileInfo,
+  services,
+  testimonials,
+} from './data/site'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className='app'>
+      <Header
+        items={navItems}
+        profile={profileInfo}
+        ctaLabel='Agende sua Consulta'
+        ctaHref={contactInfo.whatsappLink}
+      />
+      <main>
+        <Hero
+          content={heroContent}
+          ctaHref={contactInfo.whatsappLink}
+          secondaryHref='#servicos'
+          imageSrc={heroImage}
+        />
+        <About intro={aboutIntro} highlights={aboutHighlights} cards={aboutCards} />
+        <Services services={services} />
+        <Testimonials testimonials={testimonials} />
+        <Contact contact={contactInfo} services={services} />
+      </main>
+      <Footer
+        profile={profileInfo}
+        items={navItems}
+        services={services}
+        contact={contactInfo}
+      />
+      <FloatingWhatsApp href={contactInfo.whatsappLink} />
+    </div>
   )
 }
 

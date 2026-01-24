@@ -1903,6 +1903,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lucide-react@npm:^0.563.0":
+  version: 0.563.0
+  resolution: "lucide-react@npm:0.563.0"
+  peerDependencies:
+    react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
+  checksum: 842fec302a57ae1e70eafe8b8b5020aef69c0f7969c3bd9af85cf3080f41c68ebedd6bf8bf041d83beb367b4e4febd5689f1e181560a602d0593c5bbfbe804bb
+  languageName: node
+  linkType: hard
+
 "make-fetch-happen@npm:^15.0.0":
   version: 15.0.3
   resolution: "make-fetch-happen@npm:15.0.3"
@@ -1935,6 +1944,7 @@ __metadata:
     eslint-plugin-react-hooks: ^7.0.1
     eslint-plugin-react-refresh: ^0.4.24
     globals: ^16.5.0
+    lucide-react: ^0.563.0
     react: ^19.2.0
     react-dom: ^19.2.0
     typescript: ~5.9.3
