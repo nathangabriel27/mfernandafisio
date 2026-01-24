@@ -11,7 +11,9 @@ import imageOne from '../assets/1.jpeg'
 import imageTwo from '../assets/2.jpeg'
 import imageThree from '../assets/3.jpeg'
 import imageFour from '../assets/4.jpeg'
+import imageFive from '../assets/5.png'
 import heroImageSrc from '../assets/mfisio.jpeg'
+import logoImage from '../assets/iIcon-logo.jpeg'
 
 export const profileInfo: ProfileInfo = {
   name: 'Maria Fernanda',
@@ -75,7 +77,7 @@ export const services: ServiceItem[] = [
     title: 'Fisioterapia',
     description:
       'Plano personalizado para reduzir dor, recuperar movimentos e melhorar a funcionalidade.',
-    imageSrc: imageOne,
+    imageSrc: imageFive,
   },
   {
     title: 'Massagem Relaxante',
@@ -99,13 +101,13 @@ export const services: ServiceItem[] = [
     title: 'Avaliação Postural',
     description:
       'Avaliação funcional para identificar padrões de movimento e orientar o tratamento.',
-    imageSrc: imageTwo,
+    imageSrc: imageFour,
   },
   {
     title: 'Reabilitação e Fortalecimento',
     description:
       'Exercícios orientados para recuperar força, estabilidade e confiança no corpo.',
-    imageSrc: imageFour,
+    imageSrc: logoImage,
   },
 ]
 
@@ -146,3 +148,6 @@ export const contactInfo: ContactInfo = {
 }
 
 export const heroImage = heroImageSrc
+
+export const siteVersion = 'Versão 1.0.2'
+export const siteUpdatedAt = '01/01/2026 as 15:17'
