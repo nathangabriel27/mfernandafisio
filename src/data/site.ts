@@ -136,9 +136,9 @@ const whatsappMessage =
   'Oi, Maria Fernanda! Gostaria de agendar uma avaliação.'
 
 export const contactInfo: ContactInfo = {
-  whatsappNumber: '553197821950',
-  whatsappDisplay: '+55 (31) 97821-1950',
-  whatsappLink: `https://wa.me/553197821950?text=${encodeURIComponent(whatsappMessage)}`,
+  whatsappNumber: '5531999228607',
+  whatsappDisplay: '+55 (31) 99922-8607',
+  whatsappLink: `https://wa.me/5531999228607?text=${encodeURIComponent(whatsappMessage)}`,
   instagramUrl: 'https://www.instagram.com/mfernanda.fisio/',
   instagramHandle: '@mfernanda.fisio',
   city: 'Belo Horizonte - MG',
