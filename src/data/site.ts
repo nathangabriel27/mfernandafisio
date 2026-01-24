@@ -137,7 +137,7 @@ const whatsappMessage =
 
 export const contactInfo: ContactInfo = {
   whatsappNumber: '5531999228607',
-  whatsappDisplay: '+55 (31) 99922-8607',
+  whatsappDisplay: '31 99922-8607',
   whatsappLink: `https://wa.me/5531999228607?text=${encodeURIComponent(whatsappMessage)}`,
   instagramUrl: 'https://www.instagram.com/mfernanda.fisio/',
   instagramHandle: '@mfernanda.fisio',
@@ -152,5 +152,5 @@ export const heroImage = heroImageSrc
 const envVersion = import.meta.env.VITE_SITE_VERSION
 const envUpdatedAt = import.meta.env.VITE_SITE_UPDATED_AT
 
-export const siteVersion = envVersion || 'Versão 1.0.2'
+export const siteVersion = envVersion || '1.0.0'
 export const siteUpdatedAt = envUpdatedAt || '—' 

@@ -36,7 +36,7 @@ jobs:
       - name: Set build metadata
         shell: bash
         run: |
-          echo "VITE_SITE_VERSION=Versão: 1.0.${{ github.run_number }}" >> "$GITHUB_ENV"
+          echo "VITE_SITE_VERSION=1.0.${{ github.run_number }}" >> "$GITHUB_ENV"
           echo "VITE_SITE_UPDATED_AT=$(TZ=America/Sao_Paulo date '+%d/%m/%Y as %H:%M')" >> "$GITHUB_ENV"
 
       - name: Build
