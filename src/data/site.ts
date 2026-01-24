@@ -153,4 +153,4 @@ const envVersion = import.meta.env.VITE_SITE_VERSION
 const envUpdatedAt = import.meta.env.VITE_SITE_UPDATED_AT
 
 export const siteVersion = envVersion || 'Versão 1.0.2'
-export const siteUpdatedAt = envUpdatedAt || '—'
+export const siteUpdatedAt = envUpdatedAt || '—' 
