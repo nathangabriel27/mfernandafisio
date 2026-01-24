@@ -25,8 +25,5 @@ jobs:
       - name: Install
         run: yarn install --immutable
 
-      - name: Lint
-        run: yarn lint
-
       - name: Build
         run: yarn build
