@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -16,6 +16,7 @@ concurrency:
 
 jobs:
   deploy:
+    if: ${{ github.actor != 'github-actions[bot]' }}
     runs-on: ubuntu-latest
     environment:
       name: github-pages
@@ -29,8 +30,69 @@ jobs:
           node-version: lts/*
           cache: 'yarn'
 
-      - run: yarn install
-      - run: yarn build
+      - name: Install
+        run: yarn install --immutable
+
+      - name: Bump version + update site footer stamp
+        shell: bash
+        run: |
+          node - <<'NODE'
+          const fs = require('fs');
+
+          // 1) Bump patch in package.json
+          const pkgPath = 'package.json';
+          const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf8'));
+          const parts = String(pkg.version || '1.0.0').split('.').map((n) => parseInt(n, 10));
+          const maj = Number.isFinite(parts[0]) ? parts[0] : 1;
+          const min = Number.isFinite(parts[1]) ? parts[1] : 0;
+          const pat = Number.isFinite(parts[2]) ? parts[2] : 0;
+          const next = `${maj}.${min}.${pat + 1}`;
+          pkg.version = next;
+          fs.writeFileSync(pkgPath, `${JSON.stringify(pkg, null, 2)}\n`, 'utf8');
+
+          // 2) Build timestamp (pt-BR) in Sao Paulo timezone: dd/mm/yyyy as HH:MM
+          const dt = new Date();
+          const formatted = new Intl.DateTimeFormat('pt-BR', {
+            timeZone: 'America/Sao_Paulo',
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit',
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: false,
+          }).format(dt);
+
+          // `formatted` can be like "24/01/2026 13:05" or "24/01/2026 13:05" depending on platform
+          const updatedAt = formatted.replace(',', '').replace(' ', ' as ');
+
+          // 3) Update src/data/site.ts exports (keep single quotes)
+          const sitePath = 'src/data/site.ts';
+          let site = fs.readFileSync(sitePath, 'utf8');
+
+          site = site.replace(
+            /export const siteVersion = 'Versão[^']*'/,
+            `export const siteVersion = 'Versão ${next}'`
+          );
+
+          site = site.replace(
+            /export const siteUpdatedAt = '[^']*'/,
+            `export const siteUpdatedAt = '${updatedAt}'`
+          );
+
+          fs.writeFileSync(sitePath, site, 'utf8');
+
+          console.log('Bumped to:', next);
+          console.log('Updated at:', updatedAt);
+          NODE
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add package.json src/data/site.ts
+          git commit -m "chore(release): bump version + updatedAt" || echo "Nothing to commit"
+          git push
+
+      - name: Build
+        run: yarn build
 
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4
