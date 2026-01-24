@@ -137,7 +137,7 @@ const whatsappMessage =
 
 export const contactInfo: ContactInfo = {
   whatsappNumber: '5531999228607',
-  whatsappDisplay: '31 99922-8607',
+  whatsappDisplay: '+55 (31) 99922-8607',
   whatsappLink: `https://wa.me/5531999228607?text=${encodeURIComponent(whatsappMessage)}`,
   instagramUrl: 'https://www.instagram.com/mfernanda.fisio/',
   instagramHandle: '@mfernanda.fisio',
