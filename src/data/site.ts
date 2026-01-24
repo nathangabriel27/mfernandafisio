@@ -149,5 +149,8 @@ export const contactInfo: ContactInfo = {
 
 export const heroImage = heroImageSrc
 
-export const siteVersion = 'Versão 1.0.2'
-export const siteUpdatedAt = '01/01/2026 as 15:17'
+const envVersion = import.meta.env.VITE_SITE_VERSION
+const envUpdatedAt = import.meta.env.VITE_SITE_UPDATED_AT
+
+export const siteVersion = envVersion || 'Versão 1.0.2'
+export const siteUpdatedAt = envUpdatedAt || '—' 
