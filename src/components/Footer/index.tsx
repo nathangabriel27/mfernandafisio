@@ -71,7 +71,7 @@ const Footer = ({ profile, items, services, contact }: FooterProps) => {
           <span>
             © 2026 {profile.name}. Todos os direitos reservados.
             <span className='footer-version'>
-              {siteVersion} • Atualizado em {siteUpdatedAt}
+              Versão: {siteVersion} • Atualizado em {siteUpdatedAt}
             </span>
           </span>
         </div>
