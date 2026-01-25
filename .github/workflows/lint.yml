@@ -1,0 +1,29 @@
+name: Lint (ESLint)
+
+on:
+  pull_request:
+    branches:
+      - production
+      - develop
+  workflow_dispatch:
+
+jobs:
+  eslint:
+    name: Run ESLint
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: lts/*
+          cache: 'yarn'
+
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      - name: Run ESLint
+        run: yarn lint

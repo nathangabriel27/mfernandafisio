@@ -11,7 +11,9 @@ import imageOne from '../assets/1.jpeg'
 import imageTwo from '../assets/2.jpeg'
 import imageThree from '../assets/3.jpeg'
 import imageFour from '../assets/4.jpeg'
+import imageFive from '../assets/5.png'
 import heroImageSrc from '../assets/mfisio.jpeg'
+import logoImage from '../assets/iIcon-logo.jpeg'
 
 export const profileInfo: ProfileInfo = {
   name: 'Maria Fernanda',
@@ -75,7 +77,7 @@ export const services: ServiceItem[] = [
     title: 'Fisioterapia',
     description:
       'Plano personalizado para reduzir dor, recuperar movimentos e melhorar a funcionalidade.',
-    imageSrc: imageOne,
+    imageSrc: imageFive,
   },
   {
     title: 'Massagem Relaxante',
@@ -99,13 +101,13 @@ export const services: ServiceItem[] = [
     title: 'Avaliação Postural',
     description:
       'Avaliação funcional para identificar padrões de movimento e orientar o tratamento.',
-    imageSrc: imageTwo,
+    imageSrc: imageFour,
   },
   {
     title: 'Reabilitação e Fortalecimento',
     description:
       'Exercícios orientados para recuperar força, estabilidade e confiança no corpo.',
-    imageSrc: imageFour,
+    imageSrc: logoImage,
   },
 ]
 
@@ -134,9 +136,9 @@ const whatsappMessage =
   'Oi, Maria Fernanda! Gostaria de agendar uma avaliação.'
 
 export const contactInfo: ContactInfo = {
-  whatsappNumber: '553197821950',
-  whatsappDisplay: '+55 (31) 97821-1950',
-  whatsappLink: `https://wa.me/553197821950?text=${encodeURIComponent(whatsappMessage)}`,
+  whatsappNumber: '5531999228607',
+  whatsappDisplay: '31 99922-8607',
+  whatsappLink: `https://wa.me/5531999228607?text=${encodeURIComponent(whatsappMessage)}`,
   instagramUrl: 'https://www.instagram.com/mfernanda.fisio/',
   instagramHandle: '@mfernanda.fisio',
   city: 'Belo Horizonte - MG',
@@ -146,3 +148,9 @@ export const contactInfo: ContactInfo = {
 }
 
 export const heroImage = heroImageSrc
+
+const envVersion = import.meta.env.VITE_SITE_VERSION
+const envUpdatedAt = import.meta.env.VITE_SITE_UPDATED_AT
+
+export const siteVersion = envVersion ? `Versão ${envVersion}` : 'Versão 1.0.0'
+export const siteUpdatedAt = envUpdatedAt || '—'

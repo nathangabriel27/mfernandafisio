@@ -1,6 +1,7 @@
 import type { NavItem, ContactInfo, ProfileInfo, ServiceItem } from '../../types/site'
 import InstagramIcon from '../icons/InstagramIcon'
 import WhatsAppIcon from '../icons/WhatsAppIcon'
+import { siteUpdatedAt, siteVersion } from '../../data/site'
 
 type FooterProps = {
   profile: ProfileInfo
@@ -61,13 +62,18 @@ const Footer = ({ profile, items, services, contact }: FooterProps) => {
                 rel='noreferrer'
                 aria-label='WhatsApp'
               >
-                <WhatsAppIcon className='footer-social__icon' size={18} />
+                <WhatsAppIcon className='footer-social__icon' size={26} />
               </a>
             </div>
           </div>
         </div>
         <div className='footer-bottom'>
-          <span>© {new Date().getFullYear()} {profile.name}. Todos os direitos reservados.</span>
+          <span>
+            © 2026 {profile.name}. Todos os direitos reservados.
+            <span className='footer-version'>
+              Versão: {siteVersion} • Atualizado em {siteUpdatedAt}
+            </span>
+          </span>
         </div>
       </div>
     </footer>

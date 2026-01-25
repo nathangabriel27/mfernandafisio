@@ -2,7 +2,8 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: ['main']
+    tags:
+      - 'v*.*.*'
   workflow_dispatch:
 
 permissions:
@@ -16,6 +17,7 @@ concurrency:
 
 jobs:
   deploy:
+    if: ${{ github.actor != 'github-actions[bot]' }}
     runs-on: ubuntu-latest
     environment:
       name: github-pages
@@ -29,8 +31,19 @@ jobs:
           node-version: lts/*
           cache: 'yarn'
 
-      - run: yarn install
-      - run: yarn build
+      - name: Install
+        run: yarn install --immutable
+
+      - name: Set build metadata
+        shell: bash
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}"
+          UPDATED_AT="$(TZ=America/Sao_Paulo date '+%d/%m/%Y as %H:%M')"
+          echo "VITE_SITE_VERSION=$VERSION" >> "$GITHUB_ENV"
+          echo "VITE_SITE_UPDATED_AT=$UPDATED_AT" >> "$GITHUB_ENV"
+
+      - name: Build
+        run: yarn build
 
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4
