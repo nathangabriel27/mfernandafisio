@@ -152,5 +152,5 @@ export const heroImage = heroImageSrc
 const envVersion = import.meta.env.VITE_SITE_VERSION
 const envUpdatedAt = import.meta.env.VITE_SITE_UPDATED_AT
 
-export const siteVersion = envVersion || '1.0.0'
-export const siteUpdatedAt = envUpdatedAt || '—' 
+export const siteVersion = envVersion ? `Versão ${envVersion}` : 'Versão 1.0.0'
+export const siteUpdatedAt = envUpdatedAt || '—'
