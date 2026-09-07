@@ -12,8 +12,8 @@ const About = ({ intro, highlights, cards }: AboutProps) => {
     <Section
       id='sobre'
       variant='b'
-      title='Sobre'
-      subtitle='Presença, escuta e cuidado para o seu corpo se sentir seguro.'
+      title='Sobre mim:'
+      subtitle={'Sou Dra. Maria Fernanda, fisioterapeuta, e atuo com atendimento domiciliar em Belo Horizonte e região. Meu propósito é oferecer um atendimento humanizado com cuidado individualizado para você se movimentar melhor e viver com mais qualidade. '}
     >
       <div className='about-intro'>
         <p>{intro}</p>

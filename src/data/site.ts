@@ -7,107 +7,93 @@ import type {
   ServiceItem,
   Testimonial,
 } from '../types/site'
-import imageOne from '../assets/1.jpeg'
-import imageTwo from '../assets/2.jpeg'
-import imageThree from '../assets/3.jpeg'
 import imageFour from '../assets/4.jpeg'
-import imageFive from '../assets/5.png'
-import heroImageSrc from '../assets/mfisio.jpeg'
-import logoImage from '../assets/iIcon-logo.jpeg'
+import imageSix from '../assets/6.jpg'
+import imageSeven from '../assets/7.jpg'
+import imageEight from '../assets/8.png'
+import heroImageSrc from '../assets/SRAH1127.jpg'
+import packageJson from '../../package.json'
 
 export const profileInfo: ProfileInfo = {
-  name: 'Maria Fernanda',
-  title: 'Maria Fernanda | Fisioterapeuta',
-  city: 'Belo Horizonte - MG',
-  miniBio:
-    'Fisioterapia humanizada com atendimento domiciliar em Belo Horizonte.',
+  name: 'Dra. Maria Fernanda',
+  title: 'Dra. Maria Fernanda | Fisioterapeuta',
+  profession: 'Fisioterapeuta',
+  crefito: 'CREFITO 459506-F',
+  miniBio: 'Atendimento domiciliar em Belo Horizonte e região.\nA clínica vai até você!',
 }
 
 export const navItems: NavItem[] = [
   { id: 'inicio', label: 'Início' },
   { id: 'sobre', label: 'Sobre' },
   { id: 'servicos', label: 'Serviços' },
-  { id: 'depoimentos', label: 'Depoimentos' },
+/*   { id: 'depoimentos', label: 'Depoimentos' }, */
   { id: 'contato', label: 'Contato' },
 ]
 
 export const heroContent: HeroContent = {
-  eyebrow: 'Atendimento domiciliar em Belo Horizonte',
-  title: 'Cuidado perto de você, com conforto e resultado funcional',
-  description:
-    'Sessões pensadas para aliviar dores, melhorar o movimento e trazer mais bem-estar no dia a dia.',
+  eyebrow: 'Atendimento domiciliar em Belo Horizonte e região',
+  title: 'Cuidado que vai até você.',
+  description: 'Atendimentos personalizados para cada paciente, garantindo cuidado humanizado e resultados eficazes.',
   ctaPrimary: 'Agendar avaliação',
   ctaSecondary: 'Conheça nossos serviços',
 }
 
 export const aboutIntro =
-  'Maria Fernanda é fisioterapeuta e criadora de conteúdo digital, com foco em atendimento domiciliar humanizado.'
+  'Mais do que tratar uma dor ou limitação, meu objetivo é ajudar você ou o seu familiar a recuperar movimentos, autonomia, segurança e confiança para realizar as atividades do dia a dia.'
 
 export const aboutHighlights: string[] = [
   'Atendimento domiciliar',
-  'Fisioterapia',
-  'Massagem Relaxante',
+  'Fisioterapia ortopédica',
+  'Fisioterapia geriátrica',
   'Liberação Miofascial',
-  'Drenagem Linfática',
+  'Massagem Relaxante',
 ]
 
 export const aboutCards: AboutCard[] = [
   {
     title: 'Missão',
     description:
-      'Oferecer cuidado humano e resultados funcionais, com conforto e segurança no atendimento domiciliar.',
+      'Promover saúde, movimento e autonomia por meio de um atendimento fisioterapêutico, respeitando as necessidades e objetivos de cada paciente.',
     icon: '💚',
   },
   {
     title: 'Visão',
     description:
-      'Ser referência em atendimento domiciliar e educação em saúde na região de Belo Horizonte.',
+      'Ser referência em fisioterapia domiciliar em Belo Horizonte, reconhecida pela qualidade do atendimento, cuidado humanizado e compromisso com a evolução de cada paciente.',
     icon: '✨',
   },
   {
     title: 'Valores',
     description:
-      'Acolhimento, ética, consistência e evolução do paciente em cada etapa do cuidado.',
+      'Humanização • Ética • Individualidade • Segurança • Acolhimento • Evolução',
     icon: '🤝',
   },
 ]
 
 export const services: ServiceItem[] = [
   {
-    title: 'Fisioterapia',
+    title: 'Fisioterapia Ortopédica',
     description:
-      'Plano personalizado para reduzir dor, recuperar movimentos e melhorar a funcionalidade.',
-    imageSrc: imageFive,
+      'Cuidado especializado na prevenção de lesões, redução de dores e recuperação dos movimentos',
+    imageSrc: imageSeven,
+  },
+  {
+    title: 'Fisioterapia Geriátrica',
+    description:
+      'Tratamento individualizado para promover força, equilíbrio, mobilidade e independência, contribuindo para um envelhecimento mais ativo, seguro e com qualidade de vida.',
+    imageSrc: imageSix,
   },
   {
     title: 'Massagem Relaxante',
     description:
-      'Toques terapêuticos para aliviar tensões, melhorar o sono e promover bem-estar.',
-    imageSrc: imageTwo,
+      'Técnicas manuais para o alívio de tensões musculares, redução do estresse e promoção de uma sensação de relaxamento e bem-estar.',
+    imageSrc: imageEight,
   },
   {
     title: 'Liberação Miofascial',
     description:
-      'Técnicas manuais para soltar pontos de tensão e devolver mobilidade.',
-    imageSrc: imageThree,
-  },
-  {
-    title: 'Drenagem Linfática',
-    description:
-      'Estimula a circulação e reduz inchaços com um toque suave e eficaz.',
-    imageSrc: imageOne,
-  },
-  {
-    title: 'Avaliação Postural',
-    description:
-      'Avaliação funcional para identificar padrões de movimento e orientar o tratamento.',
+      'Técnicas manuais direcionadas para reduzir tensões musculares, melhorar a mobilidade e favorecer movimentos mais livres.',
     imageSrc: imageFour,
-  },
-  {
-    title: 'Reabilitação e Fortalecimento',
-    description:
-      'Exercícios orientados para recuperar força, estabilidade e confiança no corpo.',
-    imageSrc: logoImage,
   },
 ]
 
@@ -133,7 +119,7 @@ export const testimonials: Testimonial[] = [
 ]
 
 const whatsappMessage =
-  'Oi, Maria Fernanda! Gostaria de agendar uma avaliação.'
+  'Oi, Dra. Maria Fernanda! Gostaria de agendar uma avaliação.'
 
 export const contactInfo: ContactInfo = {
   whatsappNumber: '5531999228607',
@@ -152,5 +138,5 @@ export const heroImage = heroImageSrc
 const envVersion = import.meta.env.VITE_SITE_VERSION
 const envUpdatedAt = import.meta.env.VITE_SITE_UPDATED_AT
 
-export const siteVersion = envVersion ? `Versão ${envVersion}` : 'Versão 1.0.0'
+export const siteVersion = envVersion || packageJson.version
 export const siteUpdatedAt = envUpdatedAt || '—'

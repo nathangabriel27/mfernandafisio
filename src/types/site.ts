@@ -15,7 +15,8 @@ export type NavItem = {
 export type ProfileInfo = {
   name: string
   title: string
-  city: string
+  profession: string
+  crefito: string
   miniBio: string
 }
 

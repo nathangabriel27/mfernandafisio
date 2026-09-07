@@ -48,6 +48,7 @@
 
 .section__subtitle {
   margin: 0;
+  white-space: pre-line;
   color: var(--muted);
   line-height: 1.7;
   max-width: 60ch;
@@ -162,7 +163,7 @@
   font-size: 1.15rem;
 }
 
-.brand__city {
+.brand__detail {
   font-size: 0.9rem;
   color: var(--muted);
 }
@@ -348,7 +349,7 @@
 }
 
 .hero {
-  padding-top: clamp(80px, 10vw, 120px);
+  padding-top: clamp(40px, 10vw, 10px);
 }
 
 .hero-grid {
@@ -486,9 +487,10 @@
 
 .service-card__image {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 3 / 3;
   border-radius: 16px;
-  object-fit: cover;
+  object-fit: contain;
+  overflow: hidden;
 }
 
 .service-card__content {
@@ -765,7 +767,7 @@ textarea {
     font-size: 1rem;
   }
 
-  .brand__city {
+  .brand__detail {
     font-size: 0.8rem;
   }
 

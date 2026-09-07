@@ -2,6 +2,7 @@ import { useState } from 'react'
 import type { ChangeEvent, FormEvent } from 'react'
 import type { ContactInfo, ServiceItem } from '../../types/site'
 import Section from '../Section'
+import { buildWhatsAppUrl } from './whatsapp'
 
 type ContactProps = {
   contact: ContactInfo
@@ -10,16 +11,14 @@ type ContactProps = {
 
 type FormState = {
   name: string
-  email: string
-  phone: string
+  address: string
   service: string
   message: string
 }
 
 const initialState: FormState = {
   name: '',
-  email: '',
-  phone: '',
+  address: '',
   service: '',
   message: '',
 }
@@ -39,8 +38,8 @@ const Contact = ({ contact, services }: ContactProps) => {
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    console.log('Contato enviado', formState)
-    setFormState(initialState)
+    const whatsappUrl = buildWhatsAppUrl(contact.whatsappNumber, formState)
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer')
   }
 
   return (
@@ -55,7 +54,7 @@ const Contact = ({ contact, services }: ContactProps) => {
         <div className='contact-info'>
           <div>
             <h3 className='card__title'>Fale comigo</h3>
-            <p className='card__text'>Atendimento domiciliar em Belo Horizonte.</p>
+            <p className='card__text'>Atendimento domiciliar em Belo Horizonte e região.</p>
           </div>
           <div className='contact-list'>
             <div>
@@ -73,11 +72,6 @@ const Contact = ({ contact, services }: ContactProps) => {
             <div>
               <span className='contact-label'>Cidade</span>
               <span>{contact.city}</span>
-            </div>
-            <div>
-              <span className='contact-label'>Horários</span>
-              <span>{contact.hoursWeekday}</span>
-              <span>{contact.hoursSaturday}</span>
             </div>
             <div>
               <span className='contact-label'>Formato</span>
@@ -99,27 +93,6 @@ const Contact = ({ contact, services }: ContactProps) => {
               />
             </label>
             <label className='form-field'>
-              <span>E-mail</span>
-              <input
-                type='email'
-                name='email'
-                value={formState.email}
-                onChange={handleChange}
-                placeholder='voce@email.com'
-                required
-              />
-            </label>
-            <label className='form-field'>
-              <span>Telefone</span>
-              <input
-                type='tel'
-                name='phone'
-                value={formState.phone}
-                onChange={handleChange}
-                placeholder='(00) 00000-0000'
-              />
-            </label>
-            <label className='form-field'>
               <span>Serviço de interesse</span>
               <select
                 name='service'
@@ -136,6 +109,16 @@ const Contact = ({ contact, services }: ContactProps) => {
                   </option>
                 ))}
               </select>
+            </label>
+            <label className='form-field'>
+              <span>Endereço</span>
+              <input
+                type='text'
+                name='address'
+                value={formState.address}
+                onChange={handleChange}
+                placeholder='Rua, número, bairro'
+              />
             </label>
             <label className='form-field form-field--full'>
               <span>Mensagem</span>
