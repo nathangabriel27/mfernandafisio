@@ -34,7 +34,7 @@ const Hero = ({ content, ctaHref, secondaryHref, imageSrc }: HeroProps) => {
           <div className='hero-image-card'>
             <img
               src={imageSrc}
-              alt='Maria Fernanda em atendimento de fisioterapia'
+              alt='Dra.Maria Fernanda em atendimento de fisioterapia'
               className='hero-image'
             />
           </div>

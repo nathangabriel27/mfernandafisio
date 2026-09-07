@@ -6,7 +6,6 @@ import Footer from './components/Footer'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import Services from './components/Services'
-import Testimonials from './components/Testimonials'
 import {
   aboutCards,
   aboutHighlights,
@@ -17,7 +16,6 @@ import {
   navItems,
   profileInfo,
   services,
-  testimonials,
 } from './data/site'
 
 function App() {
@@ -26,7 +24,7 @@ function App() {
       <Header
         items={navItems}
         profile={profileInfo}
-        ctaLabel='Agende sua Consulta'
+        ctaLabel='Agende sua Avaliação'
         ctaHref={contactInfo.whatsappLink}
       />
       <main>
@@ -38,7 +36,6 @@ function App() {
         />
         <About intro={aboutIntro} highlights={aboutHighlights} cards={aboutCards} />
         <Services services={services} />
-        <Testimonials testimonials={testimonials} />
         <Contact contact={contactInfo} services={services} />
       </main>
       <Footer

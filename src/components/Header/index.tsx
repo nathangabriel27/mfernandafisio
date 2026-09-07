@@ -55,7 +55,8 @@ const Header = ({ items, profile, ctaLabel, ctaHref }: HeaderProps) => {
       <div className='container header__inner'>
         <a className='brand' href='#inicio'>
           <span className='brand__name'>{profile.name}</span>
-          <span className='brand__city'>{profile.city}</span>
+          <span className='brand__detail'>{profile.profession}</span>
+          <span className='brand__detail'>{profile.crefito}</span>
         </a>
         <nav className='nav' aria-label='Navegação principal'>
           {items.map((item) => (
